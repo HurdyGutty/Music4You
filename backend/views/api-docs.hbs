@@ -1,0 +1,25 @@
+<div class="container-fluid min-vh-100 bg-body-tertiary">
+    <div class="row">
+        <aside class="col-lg-3 col-xl-2 bg-body border-end p-4 sticky-lg-top">
+            <div class="mb-4">
+                <div class="fw-bold fs-5">Media4Y</div>
+                <div class="text-secondary small">API Reference 1.0.0</div>
+            </div>
+            <nav class="nav flex-column gap-1">
+                <a href="#overview" class="nav-link link-secondary rounded fw-medium px-3 py-2">Overview</a>
+                <a href="#auth" class="nav-link link-secondary rounded fw-medium px-3 py-2">Auth</a>
+                <a href="#playlists" class="nav-link link-secondary rounded fw-medium px-3 py-2">Playlists</a>
+                <a href="#misc" class="nav-link link-secondary rounded fw-medium px-3 py-2">Misc</a>
+            </nav>
+        </aside>
+         
+        <main class="col-lg-9 col-xl-10 px-3 px-md-5 py-4 py-md-5">
+            <div class="container-xxl">
+                {{> overview}}
+                {{> auth}}
+                {{> playlists}}
+                {{> misc}}
+            </div>
+        </main> 
+    </div>
+</div>

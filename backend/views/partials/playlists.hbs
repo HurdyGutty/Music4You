@@ -1,0 +1,123 @@
+<section id="playlists" class="mb-5">
+    <div class="mb-3">
+        <h2 class="h4 fw-bold mb-1">Playlists</h2>
+        <p class="text-secondary mb-0">Playlist endpoints and realtime public playlist events.</p>
+    </div>
+
+    <div class="vstack gap-4">
+        <article id="playlists-public-new" class="card border-0 rounded-3 shadow-sm overflow-hidden">
+            <div class="card-body p-0">
+                <div class="p-4 border-bottom">
+                    <div class="d-flex flex-column flex-md-row align-items-md-start gap-3">
+                        <span class="badge text-bg-primary px-3 py-2 align-self-start">GET</span>
+                        <div class="flex-grow-1">
+                            <div class="d-flex flex-column flex-xl-row gap-2 justify-content-between">
+                                <div>
+                                    <h3 class="h5 fw-semibold mb-1">Stream new public playlists</h3>
+                                    <code class="fs-6">/playlists/public/new</code>
+                                </div>
+                                <span class="badge text-bg-light border align-self-start">Public SSE</span>
+                            </div>
+                            <p class="text-secondary mt-3 mb-0">
+                                Open a Server-Sent Events stream that emits when a playlist is created as public
+                                or changed from private to public.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-4">
+                    <div class="mb-4">
+                        <div class="text-secondary small fw-bold text-uppercase mb-2">Parameters</div>
+                        <div class="text-secondary">None</div>
+                    </div>
+
+                    <div class="mb-4">
+                        <div class="text-secondary small fw-bold text-uppercase mb-2">Request Body</div>
+                        <div class="text-secondary">None</div>
+                    </div>
+
+                    <div class="mb-4">
+                        <div class="text-secondary small fw-bold text-uppercase mb-2">Headers</div>
+                        <div class="table-responsive">
+                            <table class="table align-middle mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Required</th>
+                                        <th>Value</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><code>Accept</code></td>
+                                        <td>No</td>
+                                        <td><code>text/event-stream</code></td>
+                                        <td>Recommended for SSE clients.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <div class="text-secondary small fw-bold text-uppercase mb-2">Client Example</div>
+                        <div class="border rounded bg-body p-3">
+                            <pre class="bg-dark text-light rounded p-3 overflow-auto m-0"><code class="text-light">const source = new EventSource('{{baseUrl}}/api/v1/playlists/public/new');
+
+source.onmessage = (event) =&gt; {
+  const payload = JSON.parse(event.data);
+
+  if (payload.type === 'public_playlist_new') {
+    console.log(payload.action, payload.playlist);
+  }
+};</code></pre>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="text-secondary small fw-bold text-uppercase mb-2">Responses</div>
+                        <div class="vstack gap-3">
+                            <div class="border rounded bg-body p-3">
+                                <div class="mb-3">
+                                    <span class="badge text-bg-success me-2">200</span>
+                                    <span class="fw-semibold">SSE stream connected</span>
+                                </div>
+                                <div class="d-flex flex-wrap gap-2 mb-3">
+                                    <span class="badge text-bg-light border">text/event-stream</span>
+                                    <span class="badge text-bg-light border">initial event</span>
+                                </div>
+                                <pre class="bg-dark text-light rounded p-3 overflow-auto m-0"><code class="text-light">data: {"type":"connected","message":"Connected to new public playlist events"}</code></pre>
+                            </div>
+
+                            <div class="border rounded bg-body p-3">
+                                <div class="mb-3">
+                                    <span class="badge text-bg-success me-2">event</span>
+                                    <span class="fw-semibold">New public playlist notification</span>
+                                </div>
+                                <div class="d-flex flex-wrap gap-2 mb-3">
+                                    <span class="badge text-bg-light border">type: public_playlist_new</span>
+                                    <span class="badge text-bg-light border">action: created</span>
+                                    <span class="badge text-bg-light border">action: made_public</span>
+                                </div>
+                                <pre class="bg-dark text-light rounded p-3 overflow-auto m-0"><code class="text-light">data: {
+  "type": "public_playlist_new",
+  "action": "created",
+  "playlist": {
+    "id": 4,
+    "user_id": 2,
+    "name": "new playlist",
+    "description": "Playlist mới.",
+    "is_public": true,
+    "created_at": "2026-04-01T10:18:20.807Z"
+  }
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+</section>

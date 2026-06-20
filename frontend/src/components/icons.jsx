@@ -1,0 +1,31 @@
+import {
+    House,
+    Search,
+    ChevronLeft,
+    ChevronRight,
+    Heart,
+    History,
+    ListMusic,
+    Disc3,
+    SquarePen,
+    BrushCleaning,
+    Trash2,
+    View,
+    HeartPlus,
+} from "lucide-react";
+
+export default {
+    home: House,
+    search: Search,
+    paginationLeft: ChevronLeft,
+    paginationRight: ChevronRight,
+    heart: Heart,
+    history: History,
+    listMusic: ListMusic,
+    songs: Disc3,
+    edit: SquarePen,
+    clear: BrushCleaning,
+    trash: Trash2,
+    view: View,
+    heartPlus: HeartPlus,
+}

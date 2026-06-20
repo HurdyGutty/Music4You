@@ -1,0 +1,80 @@
+<section id="misc" class="mb-5">
+    <div class="mb-3">
+        <h2 class="h4 fw-bold mb-1">Misc</h2>
+        <p class="text-secondary mb-0">General behavior for undefined routes.</p>
+    </div>
+
+    <article id="misc-not-found" class="card border-0 rounded-3 shadow-sm overflow-hidden">
+        <div class="card-body p-0">
+            <div class="p-4 border-bottom">
+                <div class="d-flex flex-column flex-md-row align-items-md-start gap-3">
+                    <span class="badge text-bg-primary px-3 py-2 align-self-start">GET</span>
+                    <div class="flex-grow-1">
+                        <div class="d-flex flex-column flex-xl-row gap-2 justify-content-between">
+                            <div>
+                                <h3 class="h5 fw-semibold mb-1">Catch-all 404 example</h3>
+                                <code class="fs-6">/{path}</code>
+                            </div>
+                            <span class="badge text-bg-light border align-self-start">Public</span>
+                        </div>
+                        <p class="text-secondary mt-3 mb-0">Example response for undefined routes.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-4">
+                <div class="mb-4">
+                    <div class="text-secondary small fw-bold text-uppercase mb-2">Parameters</div>
+                    <div class="table-responsive">
+                        <table class="table align-middle mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>In</th>
+                                    <th>Required</th>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>path</code></td>
+                                    <td>path</td>
+                                    <td>Yes</td>
+                                    <td>string</td>
+                                    <td>Undefined path.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <div class="text-secondary small fw-bold text-uppercase mb-2">Request Body</div>
+                    <div class="text-secondary">None</div>
+                </div>
+
+                <div>
+                    <div class="text-secondary small fw-bold text-uppercase mb-2">Responses</div>
+                    <div class="border rounded bg-body p-3">
+                        <div class="mb-3">
+                            <span class="badge text-bg-danger me-2">404</span>
+                            <span class="fw-semibold">Route not found</span>
+                        </div>
+                        <pre class="bg-dark text-light rounded p-3 overflow-auto m-0"><code class="text-light">{
+  "data": null,
+  "meta": {
+    "timestamp": "2026-04-01T10:25:41.213Z"
+  },
+  "error": {
+    "code": 404,
+    "message": "Can't find /api/v1/users on this server!",
+    "details": null
+  }
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>
